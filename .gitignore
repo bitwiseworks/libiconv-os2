@@ -8,7 +8,7 @@ build-aux/config.sub
 build-aux/install-sh
 build-aux/ltmain.sh
 build-aux/missing
-build-aux/mkinstalldirs
+#build-aux/mkinstalldirs
 configure
 config.h.in~
 libcharset/aclocal.m4

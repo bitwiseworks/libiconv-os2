@@ -19,7 +19,7 @@ AC_PREREQ([2.60])
 AC_INIT([libiconv], [0])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_AUX_DIR([../build-aux])
-AC_CONFIG_MACRO_DIRS([../srcm4])
+AC_CONFIG_MACRO_DIRS([../m4 ../srcm4])
 AC_PROG_MAKE_SET
 
 dnl           checks for basic programs

@@ -19,6 +19,7 @@ AC_PREREQ([2.60])
 AC_INIT([libiconv], [1.15])
 AC_CONFIG_SRCDIR([lib/iconv.c])
 AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_MACRO_DIRS([m4 srcm4])
 AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS([config.h lib/config.h])
 AC_PROG_MAKE_SET

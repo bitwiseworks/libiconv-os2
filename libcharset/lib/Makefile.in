@@ -42,6 +42,11 @@ VERSION = @VERSION@
 
 SHELL = /bin/sh
 
+PACKAGE_VERSION = @PACKAGE_VERSION@
+VENDOR ?=community
+BUILD_INFO=\#\#1\#\# $(shell date +'%d %b %Y %H:%M:%S')     $(shell uname -n)
+BUILDLEVEL_INFO=@\#$(VENDOR):$(PACKAGE_VERSION)\#@$(BUILD_INFO)::::0::
+
 # Before making a release, change this according to the libtool documentation,
 # section "Library interface versions".
 LIBCHARSET_VERSION_INFO = 1:0:0
@@ -56,7 +61,8 @@ OBJECTS = localcharset.lo relocatable.lo
 all : libcharset.la charset.alias ref-add.sed ref-del.sed
 
 libcharset.la : $(OBJECTS)
-	$(LIBTOOL_LINK) $(CC) $(LDFLAGS) $(CFLAGS) -o libcharset.la -rpath $(libdir) -version-info $(LIBCHARSET_VERSION_INFO) -no-undefined $(OBJECTS)
+	$(LIBTOOL_LINK) $(CC) $(LDFLAGS) $(CFLAGS) -o libcharset.la -rpath $(libdir) -version-info $(LIBCHARSET_VERSION_INFO) -no-undefined $(OBJECTS) \
+        -buildlevel '$(BUILDLEVEL_INFO)'
 
 localcharset.lo : $(srcdir)/localcharset.c
 	$(LIBTOOL_COMPILE) $(CC) $(INCLUDES) $(CFLAGS) $(CPPFLAGS) $(DEFS) -c $(srcdir)/localcharset.c
